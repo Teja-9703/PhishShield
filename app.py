@@ -138,6 +138,11 @@ def logout():
     flash("You have been logged out.", "success")
     return redirect(url_for('login'))
 
+@app.route('/health')
+@csrf.exempt
+def health_check():
+    return 'OK', 200
+
 @app.route('/', methods=['GET', 'POST'])
 @csrf.exempt
 def detect_phishing():
